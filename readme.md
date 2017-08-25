@@ -24,4 +24,4 @@ Issues
 
 Quero ajudar!
 -------------
-** Caso desejar, pode criar um modelo de projeto usando as suas ferramentas familiares, postar em um github e colocaremos o modelo no script!** ✨✨🎈
+**Caso desejar, pode criar um modelo de projeto usando as suas ferramentas familiares, postar em um github e colocaremos o modelo no script!** ✨✨🎈
