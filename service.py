@@ -78,7 +78,7 @@ if os.path.exists(dirpath):
     else:
         os.mkdir(projectpath)
         print("Clonando " + repo + " em " + projectpath)
-        subprocess.call("git clone " + repo + " \"" + projectpath + "\"")
+        subprocess.check_call("git clone " + repo + " \"" + projectpath + "\"", shell=True)
         # Vai para a pasta do projeto
         os.chdir(projectpath)
         # Apaga os objetos de .git
