@@ -100,6 +100,10 @@ if os.path.exists(dirpath):
         # Instalar os módulos
         os.chdir(os.path.join(projectpath, 'source'))
         subprocess.check_call("npm install", shell=True)
+        # Efetua o git init
+        os.chdir('../')
+        subprocess.check_call("git init", shell=True)
+        subprocess.check_call("git remote add origin " + projectrepo, shell=True)
 else:
     print("O diretório informado não existe! Saindo ...")
 
