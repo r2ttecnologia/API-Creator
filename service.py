@@ -32,9 +32,13 @@ def changeValues(filename, params):
 # Projeto a ser clonado
 parser = argparse.ArgumentParser()
 parser.add_argument("--dir", help="Diretório onde o projeto será iniciado!")
-parser.add_argument("project", help="Node para NodeJS, Cordova para Cordova!")
+parser.add_argument("--project", help="Node para NodeJS, Cordova para Cordova!")
 args = parser.parse_args()
-project = args.project.lower()[:3]
+if args.project:
+    project = args.project.lower()[:3]
+else:
+    project = input("Digite o tipo do projeto: ")
+    project = project.lower()[:3]
 # Repositório a ser clonado
 repo = None
 if project == 'cor':
@@ -104,6 +108,9 @@ if os.path.exists(dirpath):
         os.chdir('../')
         subprocess.check_call("git init", shell=True)
         subprocess.check_call("git remote add origin " + projectrepo, shell=True)
+        subprocess.check_call("git add .", shell=True)
+        subprocess.check_call("git commit -am \"Initial commit\"", shell=True)
+        subprocess.check_call("git push -u origin master", shell=True)
 else:
     print("O diretório informado não existe! Saindo ...")
 

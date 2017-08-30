@@ -10,9 +10,9 @@ Utilização
 **Sua utilização é livre, sinta-se a vontade para dar _fork_ no código e personalizar com suas necessidades!**
 **A chamada para o script é:**
 ```{bash}
-    python <path_to_script>/service.py --dir <diretorio_existente> {node/cordova}
+    python <path_to_script>/service.py --dir <diretorio_existente> --project {node/cordova}
 ```
-*"Caso parâmetro --dir seja oculto, o script pedirá para digitá-lo"*
+*"Caso parâmetro --dir ou --project seja oculto, o script pedirá para digitá-lo"*
 
 Bugs Conhecidos
 ---------------
