@@ -6,6 +6,10 @@ import shutil
 import string
 import argparse
 import subprocess
+from datetime import datetime
+
+current_date = datetime.now()
+current_utc_date = datetime.utcfromtimestamp(current_date.timestamp())
 
 # Mátodo que altera a variável
 def changeVar(line, params):
@@ -13,7 +17,6 @@ def changeVar(line, params):
     keys = params.keys();
     for key in keys:
         if key in line:
-            #line = re.sub(key, params[key], line)
             line = line.replace(key, params[key])
     return line
 
@@ -60,8 +63,6 @@ else:
 dirpath = dirpath.replace("\"", "")
 # Nome do projeto
 projectname = input("Nome do projeto: ")
-projectname = projectname.replace("-", "")
-projectname = projectname.replace(" ", "")
 # Descrição do projeto
 projectdesc = input("Descrição do projeto: ")
 # Repó do projeto
@@ -69,8 +70,12 @@ projectrepo = input("Repositório: ")
 # Parâmetros a serem modificados nos arquivos
 params = {}
 params["{{title}}"] = projectname.lower()
+params["{{title}}"] = params["{{title}}"].replace("-", "")
+params["{{title}}"] = params["{{title}}"].replace(" ", "")
 params["{{description}}"] = projectdesc
 params["{{repo_url}}"] = projectrepo
+params["{{code}}"] = str(current_utc_date.year) + '{:02d}'.format(current_utc_date.month) + '{:02d}'.format(current_utc_date.day) + '{:02d}'.format(current_utc_date.hour) + '{:02d}'.format(current_utc_date.minute) + '{:02d}'.format(current_utc_date.second)
+params["{{timestamp}}"] = current_date.strftime('%d/%m/%Y - %H:%M:%S')
 # Caminho do projeto
 projectpath = os.path.join(dirpath, projectname)
 # Corrige o caminho
