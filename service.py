@@ -107,7 +107,7 @@ if os.path.exists(dirpath):
                 else:
                     changeValues(f, params)
         # Instalar os módulos
-        os.chdir(os.path.join(projectpath, 'source'))
+        os.chdir(os.path.join(projectpath, 'src'))
         subprocess.check_call("npm install", shell=True)
         # Efetua o git init
         os.chdir('../')
